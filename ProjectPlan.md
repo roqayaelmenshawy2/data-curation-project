@@ -44,6 +44,32 @@ We will measure average departure delay minutes, percentage of flights delayed, 
 
 ## 4. Data
 
+## 4. Datasets
+
+### [Air Carrier Statistics (Form 41 Traffic) - U.S. Carriers](https://www.transtats.bts.gov/Tables.asp?QO_VQ=EED&QO_anzr&QO_fu146_anzr)
+
+- **Source:** Bureau of Transportation Statistics (BTS)
+- **Description:** Contains air carrier traffic and operational data for U.S. airlines. Relevant variables include airport identifiers, passenger activity, and flight-related traffic measures.
+- **Role in our project:** This dataset provides the flight and airport activity information needed to study how delays and disruptions differ across major U.S. airports.
+- **Join attributes:** Airport IATA code, such as ORD, JFK, DEN, and LAX
+- **Constraints:** Cargo-only carrier records will be filtered out so that the project remains focused on passenger operations.
+
+### [Local Climatological Data](https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data)
+
+- **Source:** National Oceanic and Atmospheric Administration (NOAA)
+- **Description:** Provides daily and hourly surface weather observations from weather stations, including many located at or near U.S. airports. Variables include precipitation, snowfall, wind speed, temperature, and other weather conditions.
+- **Role in our project:** This dataset provides the weather information needed to classify airport days based on conditions such as snow, heavy rain, and high winds.
+- **Join attributes:** Weather station or airport location and observation date
+- **Constraints:** We will need to make sure each airport is matched to the correct NOAA weather station and that weather observations are available for the dates included in the flight data.
+
+### [FAA Airport Master Records](https://www.faa.gov/forms/index.cfm/go/document.information/documentID/185474)
+
+- **Source:** Federal Aviation Administration (FAA)
+- **Description:** Provides structural, administrative, and operational information for U.S. public-use airports. Variables include airport identifiers, location information, airport characteristics, and physical layout information such as runway configuration.
+- **Role in our project:** This dataset gives us additional context about the airports themselves, which can help us compare whether factors such as airport size, hub status, or runway configuration are related to differences in weather-related flight disruptions.
+- **Join attributes:** Airport IATA or FAA code
+- **Constraints:** Some airport identifiers may need to be standardized before this dataset can be combined with the BTS and NOAA data.
+
 ## 5. Timeline
 
 The project will be completed in stages so that each dataset is collected, assessed, cleaned, and prepared before integration. Team members will primarily own the dataset or integration tasks assigned to them, while all members will contribute to documentation, quality assessment, and final project review.
@@ -86,5 +112,14 @@ There are a few limitations and challenges we may run into throughout the projec
 **Other causes of flight delays:** Weather is not the only reason flights are delayed or canceled. Airline operations, airport congestion, maintenance issues, air traffic restrictions, and delays from other airports can also play a role. Because we will not be able to control for every possible factor, we will focus on identifying relationships between weather and delays rather than claiming that weather directly caused them.
 
 **Legal and data-use restrictions:** We plan to use government data from BTS, NOAA, and FAA. We will review and document the source, licensing, and terms of use for each dataset. If any files are too large to upload to GitHub or cannot be redistributed, we will document another reproducible way to access them.
+
+## 7. Gaps
+
+Regarding weather thresholds, we will need to establish standard aviation thresholds and thoroughly comb through our data. Because it will also be up to us to define categories (ex. What constitutes “High Wind” vs “Normal”). We will need to research standardized aviation and other weather metrics and relative percentiles.
+
+There may also be an issue regarding station codes, as domestically airports may host either IATA codes, NOAA/WBAN numbers, or ICAO codes. We will need to wrangle our data and ensure consistency across our datasets.
+
+We may also be missing other delay factors, thereby entirely overlooking key confounding variables such as air traffic staffing issues or other potential situations.
+
 
 **Reproducibility:** Government websites and dataset formats can change over time. To make the project as reproducible as possible, we will keep track of the exact datasets we use, document our processing steps, use relative file paths, and save raw data when allowed.

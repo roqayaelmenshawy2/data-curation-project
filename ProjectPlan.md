@@ -67,24 +67,24 @@ This timeline may evolve as we learn more about the structure and quality of the
 
 ## 6. Constraints
 
-Several limitations and challenges may affect the project.
+There are a few limitations and challenges we may run into throughout the project.
 
-**Differences in airport identifiers:** The three datasets may not use the same airport identification system. BTS flight records may use three-letter airport codes, NOAA weather data may use weather-station identifiers, and FAA data may contain FAA-specific airport identifiers. These differences may require a documented mapping process before the datasets can be integrated.
+**Different airport identifiers:** The three datasets may not all use the same way of identifying airports. BTS may use three-letter airport codes, while NOAA may use weather-station IDs and FAA data may use its own identifiers. Because of this, we may need to create a mapping between the different identifiers before combining the datasets.
 
-**Airport-to-weather-station matching:** NOAA weather observations are associated with specific weather stations rather than directly with flight records. We will need to verify that each selected weather station appropriately represents conditions at the corresponding airport. Incorrect station mappings could reduce the accuracy of the integrated dataset.
+**Matching airports to weather stations:** NOAA weather data is tied to weather stations rather than directly to airports. We will need to make sure each airport is matched with the correct nearby weather station. If a station is too far from the airport or does not accurately represent the local weather, it could affect our results.
 
-**Differences in temporal granularity:** Flight, weather, and airport datasets may be recorded at different levels of detail. Flight records may be recorded by individual flight, NOAA observations may be hourly or daily, and FAA airport characteristics may be annual. We may need to aggregate records to a compatible level, such as airport-day, while documenting any transformations performed.
+**Different levels of time detail:** The datasets may also use different time scales. Flight data may be recorded for individual flights, weather data may be hourly or daily, and FAA airport information may be annual. We may need to combine or summarize some of the data so that everything can be compared at the same level, such as by airport and day.
 
-**Missing and inconsistent values:** The datasets may contain missing weather measurements, incomplete delay records, inconsistent date formats, duplicate observations, or different conventions for representing missing values. Each dataset will be assessed before integration, and cleaning decisions will be documented and implemented reproducibly.
+**Missing or inconsistent data:** We may run into missing weather values, incomplete delay information, duplicate rows, or inconsistent date and value formats. We will identify these issues during our data quality checks and document how we handle them during cleaning.
 
-**Defining extreme weather:** Weather categories such as heavy rain, high winds, and significant snowfall require explicit definitions. Different thresholds could affect the results of the analysis. We will use documented meteorological thresholds or clearly justify the thresholds selected for the project.
+**Defining extreme weather:** We will need to decide what counts as heavy rain, high winds, or significant snowfall. The thresholds we choose could affect the results, so we plan to use established weather definitions when possible and clearly explain the thresholds we use.
 
-**Dataset size:** BTS flight-performance data may contain a large number of records. To keep data acquisition and processing manageable, the project will focus on approximately ten major U.S. airports and data from 2024. This scope should still provide sufficient variation in airport characteristics and weather conditions.
+**Dataset size:** BTS flight data can be very large. To keep the project manageable, we plan to focus on about ten major U.S. airports and use data from 2024. This should still give us enough variation in both weather and airport characteristics without making the project too large to process.
 
-**Unequal exposure to weather conditions:** Some airports may experience many snow, rain, or high-wind events while others may experience few or none during the study period. Comparisons involving rare weather events may therefore be based on smaller sample sizes and will need to be interpreted cautiously.
+**Different levels of weather exposure:** Not every airport experiences the same types of extreme weather. Some airports may have many snow events, while others may have very few or none. Because of this, some comparisons may be based on fewer observations and will need to be interpreted carefully.
 
-**Other causes of flight delays:** Weather is only one factor associated with flight disruptions. Congestion, airline operations, maintenance, air-traffic restrictions, and delays at other airports may also influence departure delays and cancellations. Because these factors may not be fully represented in our datasets, the project will focus on identifying associations rather than claiming that weather directly causes observed delays.
+**Other causes of flight delays:** Weather is not the only reason flights are delayed or canceled. Airline operations, airport congestion, maintenance issues, air traffic restrictions, and delays from other airports can also play a role. Because we will not be able to control for every possible factor, we will focus on identifying relationships between weather and delays rather than claiming that weather directly caused them.
 
-**Legal and data-use restrictions:** The project plans to use government data from BTS, NOAA, and FAA. We will document the provenance, licensing information, terms of use, and any redistribution restrictions associated with each source. If files cannot be stored directly in GitHub because of size or redistribution restrictions, we will follow the course requirements for external storage and reproducible acquisition.
+**Legal and data-use restrictions:** We plan to use government data from BTS, NOAA, and FAA. We will review and document the source, licensing, and terms of use for each dataset. If any files are too large to upload to GitHub or cannot be redistributed, we will document another reproducible way to access them.
 
-**Reproducibility:** Government download systems, file locations, or dataset formats may change over time. We will document exact sources, dates, dependencies, and processing steps, use relative file paths, and preserve raw input data when permitted so the project can be reproduced as reliably as possible.
+**Reproducibility:** Government websites and dataset formats can change over time. To make the project as reproducible as possible, we will keep track of the exact datasets we use, document our processing steps, use relative file paths, and save raw data when allowed.

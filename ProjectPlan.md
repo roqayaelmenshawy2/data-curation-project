@@ -113,6 +113,8 @@ There are a few limitations and challenges we may run into throughout the projec
 
 **Legal and data-use restrictions:** We plan to use government data from BTS, NOAA, and FAA. We will review and document the source, licensing, and terms of use for each dataset. If any files are too large to upload to GitHub or cannot be redistributed, we will document another reproducible way to access them.
 
+**Reproducibility:** Government websites and dataset formats can change over time. To make the project as reproducible as possible, we will keep track of the exact datasets we use, document our processing steps, use relative file paths, and save raw data when allowed.
+
 ## 7. Gaps
 
 Regarding weather thresholds, we will need to establish standard aviation thresholds and thoroughly comb through our data. Because it will also be up to us to define categories (ex. What constitutes “High Wind” vs “Normal”). We will need to research standardized aviation and other weather metrics and relative percentiles.
@@ -120,6 +122,3 @@ Regarding weather thresholds, we will need to establish standard aviation thresh
 There may also be an issue regarding station codes, as domestically airports may host either IATA codes, NOAA/WBAN numbers, or ICAO codes. We will need to wrangle our data and ensure consistency across our datasets.
 
 We may also be missing other delay factors, thereby entirely overlooking key confounding variables such as air traffic staffing issues or other potential situations.
-
-
-**Reproducibility:** Government websites and dataset formats can change over time. To make the project as reproducible as possible, we will keep track of the exact datasets we use, document our processing steps, use relative file paths, and save raw data when allowed.

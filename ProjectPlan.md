@@ -42,8 +42,6 @@ How are extreme weather conditions associated with flight delays and cancellatio
 
 We will measure average departure delay minutes, percentage of flights delayed, and cancellation rates. Weather conditions will be categorized using documented thresholds. We will compare outcomes across airports and weather categories while recognizing that observed relationships do not necessarily establish causation.
 
-## 4. Data
-
 ## 4. Datasets
 
 ### [Air Carrier Statistics (Form 41 Traffic) - U.S. Carriers](https://www.transtats.bts.gov/Tables.asp?QO_VQ=EED&QO_anzr&QO_fu146_anzr)

@@ -17,14 +17,14 @@ Throughout the project, we will follow the main steps of the data lifecycle, inc
 
 ## 2. Team
 
-Our project will be completed by four team members. Responsibilities will be divided to ensure that each member contributes to the data curation process and project documentation.
+Our project will be completed by four team members. Responsibilities will be divided evenly so that each member contributes to data collection, cleaning, integration, analysis, and documentation. Each member will have a primary responsibility while also working together on the overall project.
 
-| Team Member | Responsibilities |
+| Team Member | Primary Responsibilities |
 |---|---|
-| Suha Khan | Acquire BTS flight data, assess flight data quality, and document sources. |
-| Chris Geier | Acquire NOAA weather data, clean weather observations, and standardize dates. |
-| Stephanie Li | Acquire FAA airport data, create airport identifier mappings, and develop integration scripts. |
-| Roqaya Elmenshawy | Validate integrated data, create visualizations, and coordinate workflow automation. |
+| **Suha Khan** | Collect and clean BTS flight data, identify missing or incorrect values, and prepare flight records for integration. |
+| **Chris Geier** | Collect and clean NOAA weather data, standardize weather measurements and dates, and prepare weather records for integration. |
+| **Stephanie Li** | Collect and clean FAA airport data, standardize airport identifiers, and prepare airport information for integration. |
+| **Roqaya Elmenshawy** | Develop the data integration process, combine the three cleaned datasets, and check that the datasets are joined correctly. |
 
 All team members will contribute to the project plan, status report, final README, and GitHub repository. Individual contributions will be documented through Git commits.
 

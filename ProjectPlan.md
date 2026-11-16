@@ -1,7 +1,7 @@
 
 # IS 477 – Project Plan
 
-**Project Title: Traffic Crash Severity and Road Conditions in Chicago**
+Traffic Crash Severity and Road Conditions in Chicago**
 
 ## 1. Overview
 

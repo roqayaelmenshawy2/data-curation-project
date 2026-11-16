@@ -61,37 +61,69 @@ Updated Timeline
 
 Since changing topics, we have adjusted our original tasks to reflect our new datasets while keeping the overall project schedule.
 Time Period
+
 Task
+
 Status
+
 Oct. 12–25
+
 Original dataset research and acquisition
+
 Completed
+
 Oct. 26–Nov. 8
+
 Review original datasets and reconsider project scope
+
 Completed
+
 Nov. 9–15
+
 Select new prompt datasets, assess quality, and clean data
+
 Completed
+
 Nov. 16–19
+
 Develop and test data integration process
+
 Not started
+
 Nov. 20–24
+
 Post-integration data quality assessment
+
 Not started
+
 Nov. 25–29
+
 Crash severity analysis and visualizations
+
 Not started
+
 Nov. 30–Dec. 2
+
 Workflow automation and reproducibility
+
 Not started
+
 Dec. 3–4
+
 Metadata and documentation
+
 Not started
+
 Dec. 5–6
+
 Final testing and report completion
+
 Not started
+
 Dec. 7
+
 Final project release and submission
+
 Not started
 
 

@@ -1,6 +1,6 @@
-Status Report
+**Status Report
 
-Changes to Our Project
+Changes to Our Project**
 
 Our group originally planned to study how extreme weather conditions affect flight delays and cancellations at major U.S. airports. We planned to use flight data from the Bureau of Transportation Statistics, weather data from the National Oceanic and Atmospheric Administration, and airport information from the Federal Aviation Administration.
 
@@ -15,7 +15,7 @@ Are certain vehicle types or characteristics more commonly associated with crash
 How do driver-related factors, such as age and other available characteristics, relate to crash severity?
 These questions will help guide our analysis once the three datasets have been cleaned and combined.
 
-Datasets
+**Datasets**
 
 We selected three datasets from the City of Chicago's Open Data Portal:
 Traffic Crashes – Crashes: Contains information about crash dates, road conditions, weather, lighting, and injuries. 
@@ -24,7 +24,7 @@ Traffic Crashes – People: Contains information about individuals involved in c
 These datasets are closely related and can be combined using a shared identifier, CRASH_RECORD_ID. This makes it easier to connect information about crashes, vehicles, and people involved in the same incident. 
 Although our topic and datasets changed, our overall goals of data quality assessment, cleaning, analysis, and reproducibility remain the same.
 
-Current Progress
+**Current Progress**
 
 Our group has successfully found all three datasets for our new project and have downloaded records for 2025-2026. We have also completed an initial data quality assessment of each dataset, focusing on accuracy, completeness, timeliness, and consistency.
 We examined missing values, duplicate records, data types and inconsistent formatting in our data. We also reviewed important variables such as crash dates, vehicle years, injury classifications, and crash identifiers. Through this assessment, we were able to identify issues that needed to be addressed before integration and improved our overall understanding of the datasets’ structures.
@@ -34,7 +34,7 @@ For the Vehicles dataset, we standardized formatting, checked vehicle identifier
 For the People dataset, we checked person identifiers and injury classifications, standardized city names, and examined missing demographic information and zip code formatting.
 After cleaning, each dataset was saved as separate CSV files, allowing us to review cleaned datasets before integration.
 
-Project Artifacts
+**Project Artifacts**
 
 The following files document the work completed so far:
 - [Updated Project Plan](ProjectPlan.md)
@@ -48,88 +48,50 @@ The following files document the work completed so far:
 These files document our progress and will be used
 during the integration stage.
 
-Next Steps
+**Next Steps**
 
 Now that we have cleaned our dataset, we must work on data integration. Per our original project plan, we intend on using the next two weeks to complete this task. We’ve laid out our plans for integration in more granularity here–
+
 As mentioned previously, we’ve identified CRASH_RECORD_ID as the common identifier across all three datasets. Our plan is to use the Crashes dataset as the main dataset as it contains one record per crash. The Vehicles and People dataset may contain multiple records of the same crash, so directly merging all three datasets has the risk of creating duplicate crash records.
+
 Thus, we plan to group the Vehicles dataset by CRASH_RECORD_ID and summarize various factors (ex. number/types of vehicles involved). The People dataset will also be grouped to summarize information about individuals involved and their reported injuries.
+
 From there, we will use Pandas to perform left joins with the Crashes dataset, which should allow us to preserve the original crash records while adding information from the other datasets.
+
 Following integration, we will check row counts, duplicate identifiers, unmatched records, and missing values to confirm that the datasets were combined correctly, and we will conduct a post-integration quality assessment to confirm that the joins worked correctly.
+
 Regarding analysis after we have our combined dataset, we will examine relationships between crash injuries and road conditions, weather, lighting, vehicle, and driver information. We will create visualizations to communicate the patterns identified. All this information regarding our processing steps and data cleaning will be documented and organized.
 
-Updated Timeline
+**Updated Timeline**
 
 Since changing topics, we have adjusted our original tasks to reflect our new datasets while keeping the overall project schedule.
-Time Period
 
-Task
+Time Period, Task, Status
 
-Status
+Oct. 12–25: Original dataset research and acquisition - Completed
 
-Oct. 12–25
+Oct. 26–Nov. 8: Review original datasets and reconsider project scope - Completed
 
-Original dataset research and acquisition
+Nov. 9–15: Select new prompt datasets, assess quality, and clean data - Completed
 
-Completed
+Nov. 16–19: Develop and test data integration process - Not started
 
-Oct. 26–Nov. 8
+Nov. 20–24: Post-integration data quality assessment - Not started
 
-Review original datasets and reconsider project scope
+Nov. 25–29: Crash severity analysis and visualizations - Not started
 
-Completed
+Nov. 30–Dec. 2: Workflow automation and reproducibility - Not started
 
-Nov. 9–15
+Dec. 3–4: Metadata and documentation - Not started
 
-Select new prompt datasets, assess quality, and clean data
+Dec. 5–6: Final testing and report completion - Not started
 
-Completed
-
-Nov. 16–19
-
-Develop and test data integration process
-
-Not started
-
-Nov. 20–24
-
-Post-integration data quality assessment
-
-Not started
-
-Nov. 25–29
-
-Crash severity analysis and visualizations
-
-Not started
-
-Nov. 30–Dec. 2
-
-Workflow automation and reproducibility
-
-Not started
-
-Dec. 3–4
-
-Metadata and documentation
-
-Not started
-
-Dec. 5–6
-
-Final testing and report completion
-
-Not started
-
-Dec. 7
-
-Final project release and submission
-
-Not started
+Dec. 7: Final project release and submission - Not started
 
 
-
+**
 Challenges and Solutions
-
+**
 Our biggest and most evident challenge thus far has been changing our project topic after realizing that our original datasets would be too difficult to integrate. This required meeting up one again as a team to search for new datasets, review their structures, and reorient our project plan. However, we feel much more confident having selected datasets that seem more manageable to work with.
 
 Another challenge we’ve faced has been dealing with missing and inconsistent data. Whilst cleaning, our team found that we’ve each encountered issues with categorical values, identifiers, dates, and other fields. These issues were addressed with standardizing formatting, checking for invalid values, and handling missing information where appropriate.
@@ -137,10 +99,7 @@ Another challenge we’ve faced has been dealing with missing and inconsistent d
 We also anticipate challenges during integration because the datasets contain different numbers of records for each crash, as a single incident can involve multiplev vehicles and people. From here on out, we must move with caution when summarizing records, and we intend on reviewing the combined datasets carefully to avoid incorrectly increasing the number of crashes.
 
 
-Each team member has to write a short summary of their contributions to the current
-milestone. Each team member should add and commit their contribution summary
-themselves to the shared github repo
-
+**Team Member Contribution**
 
 Stephanie: I helped with discussion on our new topic, cleaned the crashes dataset, and drafted the updates and challenges portions of this status update.
 

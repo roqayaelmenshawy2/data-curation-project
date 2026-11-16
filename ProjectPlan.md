@@ -1,122 +1,174 @@
 
-# IS 477 - Project Plan
+# IS 477 – Project Plan
 
-**Project Title:** Weather Extremes and Flight Delays at Major U.S. Airports
+**Project Title: Traffic Crash Severity and Road Conditions in Chicago**
 
 ## 1. Overview
 
-The objective of this project is to understand how different weather conditions affect flight delays and cancellations at major U.S. airports. Severe weather, such as snow, heavy rain, and strong winds, can cause flight disruptions. However, some airports may be affected more than others depending on their location, weather patterns, and size. Our project will explore these differences by combining data from multiple sources.
+For our project, we want to look at how road conditions, vehicle characteristics, and driver-related factors relate to the severity of traffic crashes in Chicago. There are a lot of different things that can contribute to a car accident, whether it's bad weather, poor road conditions, or something involving the driver or vehicle. We're interested in seeing which of these factors tend to be associated with crashes that result in injuries.
 
-We plan to study approximately ten major U.S. airports, including Chicago O'Hare, JFK, Los Angeles International, and Denver International, using data from 2024. We will use flight data from the Bureau of Transportation Statistics (BTS), weather data from the National Oceanic and Atmospheric Administration (NOAA), and airport information from the Federal Aviation Administration (FAA).
+To explore this, we're using three datasets from the City of Chicago's Open Data Portal: Traffic Crashes – Crashes, Traffic Crashes – Vehicles, and Traffic Crashes – People. Each dataset gives us different information about the same traffic incidents, and they all share a common identifier called CRASH_RECORD_ID. This allows us to connect them and get a more complete picture of each crash.
 
-The main focus of our project will be collecting, cleaning, and combining data rather than building complex models. Using Python and Pandas, we will check the datasets for missing information, errors, and differences in formatting. We will then clean the data and combine the datasets using airport codes and dates.
+Our data covers 2025 and part of 2026. We're using Python and Pandas to check for missing values, duplicates, and inconsistencies before combining everything. Once the datasets are integrated, we'll compare injury outcomes across different road, weather, lighting, vehicle, and driver conditions.
 
-Once the data is combined, we will compare flight delays under different weather conditions and create charts to show how delays vary across airports.
-
-Throughout the project, we will follow the main steps of the data lifecycle, including collecting, checking, cleaning, combining, analyzing, and documenting data. Our goal is to create a clear and repeatable process that shows how information from different government sources can be used to better understand the relationship between weather and flight delays.
+The main focus of our project is the data curation process rather than building complicated statistical models. We want to show how we can take multiple datasets, clean and combine them, and use the results to answer meaningful questions. We'll also document our steps so that someone else can reproduce our work.
 
 ## 2. Team
 
-Our project will be completed by four team members. Responsibilities will be divided evenly so that each member contributes to data collection, cleaning, integration, analysis, and documentation. Each member will have a primary responsibility while also working together on the overall project.
+Our group has four members, and we've divided the work based on the different parts of the project. Since changing our topic, we've also adjusted our responsibilities to better match the new datasets and the work that needs to be completed.
 
-| Team Member | Primary Responsibilities |
-|---|---|
-| **Suha Khan** | Collect and clean BTS flight data, identify missing or incorrect values, and prepare flight records for integration. |
-| **Chris Geier** | Collect and clean NOAA weather data, standardize weather measurements and dates, and prepare weather records for integration. |
-| **Stephanie Li** | Collect and clean FAA airport data, standardize airport identifiers, and prepare airport information for integration. |
-| **Roqaya Elmenshawy** | Develop the data integration process, combine the three cleaned datasets, and check that the datasets are joined correctly. |
+**Suha Khan:** Helped find and download the new Chicago traffic crash datasets, identify their common identifier, and clean the data. Suha will also help prepare the datasets for integration.
 
-All team members will contribute to the project plan, status report, final README, and GitHub repository. Individual contributions will be documented through Git commits.
+**Chris Geier:** Helped with discussions about changing our topic and selecting the new datasets. Chris will also help review data quality, document our processing steps, and support the remaining project work.
+
+**Stephanie Li:** Worked on cleaning the Crashes dataset and identifying data quality issues. Stephanie also helped document our project changes and challenges and will contribute to the integration process.
+
+**Roqaya Elmenshawy:** Helped with discussions about changing the topic, reviewing the new datasets, and updating our project timeline. Roqaya will also help with documentation, quality checks, and reviewing the integrated data.
+
+All four of us will contribute to the final report and make sure our work is documented through GitHub commits.
 
 ## 3. Research Questions
 
-**Primary Research Question:**
+Our main research question is:
 
-How are extreme weather conditions associated with flight delays and cancellations at major U.S. airports?
+**How are road conditions, vehicle characteristics, and driver-related factors associated with traffic crash severity in Chicago?**
 
-**Supporting Research Questions:**
+We also want to answer a few more specific questions:
 
-1. Which weather conditions, including snowfall, heavy rain, and high winds, are associated with the greatest average departure delays?
-2. Which airports experience the largest increases in delays during severe weather compared with normal weather conditions?
-3. How do airport characteristics, such as passenger volume and hub classification, relate to differences in weather-related flight disruptions?
+1. How do road surface, weather, and lighting conditions relate to the number and severity of injuries reported in crashes?
+2. Are certain vehicle types or characteristics more commonly associated with crashes involving injuries?
+3. How do driver-related factors, such as age and other available characteristics, relate to crash severity?
 
-We will measure average departure delay minutes, percentage of flights delayed, and cancellation rates. Weather conditions will be categorized using documented thresholds. We will compare outcomes across airports and weather categories while recognizing that observed relationships do not necessarily establish causation.
+To answer these questions, we'll look at things like the number of injuries reported, whether a crash involved injuries, and the injury classifications available in our data. We'll compare these across different conditions to see if any patterns stand out.
+
+We also recognize that just because two factors are related doesn't mean one directly causes the other. Our goal is to identify patterns and relationships rather than prove that any single factor causes more severe crashes.
 
 ## 4. Datasets
 
-### [Air Carrier Statistics (Form 41 Traffic) - U.S. Carriers](https://www.transtats.bts.gov/Tables.asp?QO_VQ=EED&QO_anzr&QO_fu146_anzr)
+We selected three datasets from the City of Chicago's Open Data Portal. We chose them because they all describe different parts of the same traffic incidents, which makes them easier to connect than our original airport datasets.
 
-- **Source:** Bureau of Transportation Statistics (BTS)
-- **Description:** Contains air carrier traffic and operational data for U.S. airlines. Relevant variables include airport identifiers, passenger activity, and flight-related traffic measures.
-- **Role in our project:** This dataset provides the flight and airport activity information needed to study how delays and disruptions differ across major U.S. airports.
-- **Join attributes:** Airport IATA code, such as ORD, JFK, DEN, and LAX
-- **Constraints:** Cargo-only carrier records will be filtered out so that the project remains focused on passenger operations.
+### Traffic Crashes – Crashes
 
-### [Local Climatological Data](https://www.ncei.noaa.gov/products/land-based-station/local-climatological-data)
+**Source:** City of Chicago Open Data Portal
 
-- **Source:** National Oceanic and Atmospheric Administration (NOAA)
-- **Description:** Provides daily and hourly surface weather observations from weather stations, including many located at or near U.S. airports. Variables include precipitation, snowfall, wind speed, temperature, and other weather conditions.
-- **Role in our project:** This dataset provides the weather information needed to classify airport days based on conditions such as snow, heavy rain, and high winds.
-- **Join attributes:** Weather station or airport location and observation date
-- **Constraints:** We will need to make sure each airport is matched to the correct NOAA weather station and that weather observations are available for the dates included in the flight data.
+This dataset contains general information about traffic crashes in Chicago, including when and where they happened, road surface conditions, weather, lighting, and reported injuries.
 
-### [FAA Airport Master Records](https://www.faa.gov/forms/index.cfm/go/document.information/documentID/185474)
+We'll use this as our main dataset because it contains information about each crash as a whole. It will help us understand how different environmental and road conditions relate to injury outcomes.
 
-- **Source:** Federal Aviation Administration (FAA)
-- **Description:** Provides structural, administrative, and operational information for U.S. public-use airports. Variables include airport identifiers, location information, airport characteristics, and physical layout information such as runway configuration.
-- **Role in our project:** This dataset gives us additional context about the airports themselves, which can help us compare whether factors such as airport size, hub status, or runway configuration are related to differences in weather-related flight disruptions.
-- **Join attributes:** Airport IATA or FAA code
-- **Constraints:** Some airport identifiers may need to be standardized before this dataset can be combined with the BTS and NOAA data.
+**Join Attribute:** `CRASH_RECORD_ID`
+
+Some challenges include missing values, inconsistent categories, and potentially invalid location information. We have already worked on identifying and cleaning several of these issues.
+
+### Traffic Crashes – Vehicles
+
+**Source:** City of Chicago Open Data Portal
+
+This dataset includes information about the vehicles involved in traffic crashes, such as vehicle types, model years, and other characteristics.
+
+We'll use it to explore whether certain vehicle characteristics are more commonly associated with crashes involving injuries.
+
+**Join Attribute:** `CRASH_RECORD_ID`
+
+One challenge is that a single crash can involve multiple vehicles, meaning there can be several rows for the same crash. We'll need to summarize the vehicle information before combining it with the main dataset so that we don't accidentally create duplicate crash records.
+
+### Traffic Crashes – People
+
+**Source:** City of Chicago Open Data Portal
+
+This dataset contains information about the people involved in crashes, including drivers, passengers, pedestrians, available demographic details, and reported injuries.
+
+We'll use it to better understand who is involved in crashes and how different driver-related characteristics relate to injury outcomes.
+
+**Join Attribute:** `CRASH_RECORD_ID`
+
+Like the Vehicles dataset, this dataset can contain multiple records for one crash. We also noticed that some demographic and injury-related fields have missing information, so we'll need to keep that in mind when analyzing the data.
+
+### How We'll Combine the Datasets
+
+All three datasets share `CRASH_RECORD_ID`, which gives us a way to connect them.
+
+We plan to use the Crashes dataset as our starting point since it has one record per crash. For the Vehicles and People datasets, we'll group the records by `CRASH_RECORD_ID` and create summaries of the information we need, such as the number of vehicles or people involved.
+
+We'll then use Pandas to join these summaries to the Crashes dataset. This should allow us to keep one row per crash while bringing in useful information from the other two sources.
+
+After combining everything, we'll check for duplicate records, missing matches, and other issues to make sure the integration worked as expected.
 
 ## 5. Timeline
 
-The project will be completed in stages so that each dataset is collected, assessed, cleaned, and prepared before integration. Team members will primarily own the dataset or integration tasks assigned to them, while all members will contribute to documentation, quality assessment, and final project review.
+We originally planned to spend October collecting and preparing our flight, weather, and airport datasets. However, after reviewing those sources, we realized that integrating them would be more difficult than we expected. We decided to change topics and adjust our schedule while keeping the December 7 final deadline.
 
-| Time Period | Task | Description | Primary Responsibility |
-|---|---|---|---|
-| October 12–18 | Finalize datasets and acquisition methods | Confirm the exact BTS, NOAA, and FAA datasets, source URLs, file formats, licensing information, and acquisition methods. | Suha, Chris, Roqaya |
-| October 19–25 | Acquire raw datasets | Download or programmatically acquire the flight, weather, and airport datasets and organize raw files using consistent naming and folder conventions. | Suha, Chris, Roqaya |
-| October 26–November 1 | Pre-integration data quality assessment | Evaluate each dataset for accuracy, completeness, timeliness, and consistency. Identify missing values, duplicate records, inconsistent identifiers, and formatting differences that may affect integration. | All team members |
-| November 2–8 | Clean and standardize datasets | Apply reproducible cleaning procedures to each dataset, including standardizing dates, airport identifiers, missing-value conventions, and relevant measurement formats. | Suha, Chris, Roqaya |
-| November 9–15 | Prepare datasets for integration | Confirm the selected airport records, verify NOAA weather-station mappings, standardize airport identifiers across sources, and ensure each cleaned dataset has the fields needed for integration. | Suha, Chris, Roqaya |
-| November 16–19 | Initial data integration and status report | Combine the cleaned datasets using appropriate airport and date identifiers. Document join logic, unmatched records, and preliminary integration results for the Milestone 3 status report. | Stephanie, with support from all team members |
-| November 20–24 | Post-integration data quality assessment | Assess the integrated dataset for accuracy, completeness, timeliness, and consistency. Evaluate join success rates, duplicate matches, unmatched records, and whether the integrated data is logically valid. | Stephanie and all team members |
-| November 25–29 | Analysis and visualization | Define weather categories using documented thresholds and compare departure delays, delayed-flight percentages, and cancellation rates across airports and weather conditions. Create required visualizations. | All team members |
-| November 30–December 2 | Workflow automation and reproducibility | Organize project code into separate single-purpose scripts for acquisition, cleaning, quality assessment, integration, and analysis. Connect the scripts using a run-all script or Snakemake workflow. | All team members |
-| December 3–4 | Metadata and documentation | Create a data dictionary or codebook, machine-readable metadata, software dependency documentation, and descriptions of the project workflow and data sources. | All team members |
-| December 5–6 | Final testing and report completion | Test the workflow from a fresh copy of the repository, fix reproducibility issues, finalize the README, and verify that all required files and documentation are included. | All team members |
-| December 7 | Final project release and submission | Create the final GitHub release and submit the release URL through Canvas. | All team members |
+**October 12–25: Original Dataset Research – Completed**
 
-This timeline may evolve as we learn more about the structure and quality of the selected datasets. Any changes to tasks, responsibilities, or deadlines will be documented in the status report.
+We researched the BTS, NOAA, and FAA datasets and looked into how we could combine them. During this process, we started identifying some challenges with the different identifiers and data formats.
+
+**October 26–November 8: Reconsider Project Scope – Completed**
+
+After discussing the issues with our original datasets, we decided to switch to a Chicago traffic crash project. We felt that the new datasets would give us a more realistic way to complete the data integration requirements while still answering an interesting question.
+
+**November 9–15: Data Collection, Quality Assessment, and Cleaning – Completed**
+
+We found and downloaded the three Chicago traffic crash datasets and performed an initial quality assessment. We checked for missing values, duplicate records, inconsistent formatting, and other potential issues. We also cleaned the datasets using Python and Pandas and saved separate cleaned CSV files.
+
+**November 16–19: Data Integration – In Progress**
+
+Our next step is to combine the three datasets using `CRASH_RECORD_ID`. We'll first summarize the Vehicles and People datasets to avoid creating duplicate crash records, then join them with the Crashes dataset.
+
+**November 20–24: Post-Integration Quality Assessment – Not Started**
+
+After combining the data, we'll check whether the joins worked correctly. This will include reviewing row counts, unmatched records, duplicate identifiers, and missing values. We'll also evaluate the integrated dataset for accuracy, completeness, timeliness, and consistency.
+
+**November 25–29: Analysis and Visualizations – Not Started**
+
+We'll use the integrated data to compare crash injuries across different road conditions, weather, lighting, vehicle characteristics, and driver-related factors. We'll also create charts to show any patterns we find.
+
+**November 30–December 2: Workflow Automation and Reproducibility – Not Started**
+
+We'll organize our code into separate steps for data acquisition, quality assessment, cleaning, integration, and analysis. We'll connect these steps through an automated workflow so that the project can be run without manually executing every notebook.
+
+**December 3–4: Metadata and Documentation – Not Started**
+
+We'll work on the data dictionary, project metadata, software dependencies, and documentation explaining how we collected, cleaned, and combined the data.
+
+**December 5–6: Final Testing and Report – Not Started**
+
+We'll test the workflow from a fresh copy of the GitHub repository and fix any issues that come up. We'll also finish the README, review our findings, and make sure all required files are included.
+
+**December 7: Final Submission – Not Started**
+
+We'll create the final GitHub release and submit the release URL through Canvas.
+
+We may adjust some of these dates if certain steps take longer than expected, especially integration and workflow testing. We'll make sure to document any changes.
 
 ## 6. Constraints
 
-There are a few limitations and challenges we may run into throughout the project.
+There are a few challenges we need to keep in mind as we finish the project.
 
-**Different airport identifiers:** The three datasets may not all use the same way of identifying airports. BTS may use three-letter airport codes, while NOAA may use weather-station IDs and FAA data may use its own identifiers. Because of this, we may need to create a mapping between the different identifiers before combining the datasets.
+**Multiple records for the same crash:** One of our biggest concerns is that the three datasets don't all have the same number of records. A single crash can involve several vehicles and people, so directly merging the datasets could create duplicate crash records. To avoid this, we're planning to group and summarize the Vehicles and People datasets before combining them with the Crashes dataset.
 
-**Matching airports to weather stations:** NOAA weather data is tied to weather stations rather than directly to airports. We will need to make sure each airport is matched with the correct nearby weather station. If a station is too far from the airport or does not accurately represent the local weather, it could affect our results.
+**Missing or inconsistent information:** While cleaning the data, we came across missing values, inconsistent categories, and formatting differences. Some fields, like vehicle years, demographic information, and injury classifications, may not be complete for every record. We'll need to make sure these issues are handled consistently and explain any cleaning decisions we make.
 
-**Different levels of time detail:** The datasets may also use different time scales. Flight data may be recorded for individual flights, weather data may be hourly or daily, and FAA airport information may be annual. We may need to combine or summarize some of the data so that everything can be compared at the same level, such as by airport and day.
+**Different levels of detail:** Each dataset focuses on something different. The Crashes dataset describes the incident itself, while the Vehicles and People datasets describe individual vehicles and people. We need to be careful about how we summarize this information so that we don't lose anything important or create misleading results.
 
-**Missing or inconsistent data:** We may run into missing weather values, incomplete delay information, duplicate rows, or inconsistent date and value formats. We will identify these issues during our data quality checks and document how we handle them during cleaning.
+**Defining crash severity:** We still need to decide exactly how we'll measure crash severity. We could look at the number of injuries, whether someone was injured, or specific injury classifications. The measure we choose could affect our findings, so we'll need to explain how we define severity.
 
-**Defining extreme weather:** We will need to decide what counts as heavy rain, high winds, or significant snowfall. The thresholds we choose could affect the results, so we plan to use established weather definitions when possible and clearly explain the thresholds we use.
+**Incomplete 2026 data:** Since we're using data from 2025 and 2026, we won't have a complete year of information for 2026. Some records could also be updated after we download them. We'll document the dates covered by our datasets and keep track of the versions we're using.
 
-**Dataset size:** BTS flight data can be very large. To keep the project manageable, we plan to focus on about ten major U.S. airports and use data from 2024. This should still give us enough variation in both weather and airport characteristics without making the project too large to process.
+**Other factors affecting crashes:** Road conditions, vehicle types, and driver characteristics aren't the only things that affect crashes. Factors like traffic volume, speed, and driver behavior may also influence how severe an accident is. We might not have enough information to account for everything, so we'll be careful not to make claims about direct causes.
 
-**Different levels of weather exposure:** Not every airport experiences the same types of extreme weather. Some airports may have many snow events, while others may have very few or none. Because of this, some comparisons may be based on fewer observations and will need to be interpreted carefully.
+**Large datasets:** Our cleaned datasets contain hundreds of thousands of records, and each CSV is over 50 MB. Because of GitHub's file-size restrictions and our course requirements, we're storing the files in UIUC Box. We'll provide access to the files and include a way to download them as part of our final project workflow.
 
-**Other causes of flight delays:** Weather is not the only reason flights are delayed or canceled. Airline operations, airport congestion, maintenance issues, air traffic restrictions, and delays from other airports can also play a role. Because we will not be able to control for every possible factor, we will focus on identifying relationships between weather and delays rather than claiming that weather directly caused them.
+**Legal and ethical considerations:** We're using publicly available data from the City of Chicago. We'll document where the data came from and review any terms of use. Since the People dataset includes information about individuals involved in crashes, we'll focus on overall patterns rather than trying to identify specific people.
 
-**Legal and data-use restrictions:** We plan to use government data from BTS, NOAA, and FAA. We will review and document the source, licensing, and terms of use for each dataset. If any files are too large to upload to GitHub or cannot be redistributed, we will document another reproducible way to access them.
-
-**Reproducibility:** Government websites and dataset formats can change over time. To make the project as reproducible as possible, we will keep track of the exact datasets we use, document our processing steps, use relative file paths, and save raw data when allowed.
+**Reproducibility:** Right now, our cleaning work is organized in Python notebooks. For the final project, we'll need to make sure the workflow can be reproduced without having to manually change file paths or run everything separately. We'll also document the packages and software needed.
 
 ## 7. Gaps
 
-Regarding weather thresholds, we will need to establish standard aviation thresholds and thoroughly comb through our data. Because it will also be up to us to define categories (ex. What constitutes “High Wind” vs “Normal”). We will need to research standardized aviation and other weather metrics and relative percentiles.
+Although we've made progress with collecting and cleaning our data, there are still a few things we need to figure out before the final submission.
 
-There may also be an issue regarding station codes, as domestically airports may host either IATA codes, NOAA/WBAN numbers, or ICAO codes. We will need to wrangle our data and ensure consistency across our datasets.
+First, we need to decide exactly which variables from the Vehicles and People datasets we want to include when combining everything. Since multiple vehicles and people can be involved in one crash, we need to find a way to summarize this information without losing important details.
 
-We may also be missing other delay factors, thereby entirely overlooking key confounding variables such as air traffic staffing issues or other potential situations.
+We also need to finalize how we'll measure crash severity. We're considering injury counts and injury classifications, but we want to make sure whichever measure we choose is reliable and has enough complete data to work with.
+
+Another thing we haven't completed yet is the post-integration quality assessment. Once we've merged the datasets, we'll need to check for unmatched records, duplicates, and missing values to make sure the final dataset makes sense.
+
+Finally, we still need to finish the automated workflow and documentation. This includes organizing our scripts, adding software dependencies, creating metadata, and testing everything from a fresh copy of our GitHub repository. These steps will be important for making sure someone else can reproduce our project without needing additional instructions from us.

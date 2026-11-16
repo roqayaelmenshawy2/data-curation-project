@@ -1,6 +1,6 @@
-**Status Report
+**Status Report**
 
-Changes to Our Project**
+**Changes to Our Project**
 
 Our group originally planned to study how extreme weather conditions affect flight delays and cancellations at major U.S. airports. We planned to use flight data from the Bureau of Transportation Statistics, weather data from the National Oceanic and Atmospheric Administration, and airport information from the Federal Aviation Administration.
 
@@ -89,9 +89,8 @@ Dec. 5–6: Final testing and report completion - Not started
 Dec. 7: Final project release and submission - Not started
 
 
-**
-Challenges and Solutions
-**
+**Challenges and Solutions**
+
 Our biggest and most evident challenge thus far has been changing our project topic after realizing that our original datasets would be too difficult to integrate. This required meeting up one again as a team to search for new datasets, review their structures, and reorient our project plan. However, we feel much more confident having selected datasets that seem more manageable to work with.
 
 Another challenge we’ve faced has been dealing with missing and inconsistent data. Whilst cleaning, our team found that we’ve each encountered issues with categorical values, identifiers, dates, and other fields. These issues were addressed with standardizing formatting, checking for invalid values, and handling missing information where appropriate.

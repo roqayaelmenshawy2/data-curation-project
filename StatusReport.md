@@ -104,7 +104,7 @@ Stephanie: I helped with discussion on our new topic, cleaned the crashes datase
 
 Suha: I found the new datasets for our new topic. I also cleaned the 3 datasets that we are going to be working with.
 
-Roqaya: I contributed to our team's discussions about changing the project topic and reviewing the new datasets. I also helped update our project timeline and identify the remaining steps needed to complete the data integration, quality assessment, and final project requirements.
+Roqaya: I updated our project plan and status report to reflect our new topic, datasets, timeline, and remaining tasks. I also uploaded the cleaning notebooks to GitHub and organized the cleaned datasets in UIUC Box.
 
 Chris: Helped pick a topic for our new project. Helped contribute to status report.
 

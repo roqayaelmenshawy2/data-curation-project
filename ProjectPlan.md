@@ -55,7 +55,7 @@ This dataset contains general information about traffic crashes in Chicago, incl
 
 We'll use this as our main dataset because it contains information about each crash as a whole. It will help us understand how different environmental and road conditions relate to injury outcomes.
 
-**Join Attribute:** `CRASH_RECORD_ID`
+**Join Attribute:** CRASH_RECORD_ID
 
 Some challenges include missing values, inconsistent categories, and potentially invalid location information. We have already worked on identifying and cleaning several of these issues.
 
@@ -67,7 +67,7 @@ This dataset includes information about the vehicles involved in traffic crashes
 
 We'll use it to explore whether certain vehicle characteristics are more commonly associated with crashes involving injuries.
 
-**Join Attribute:** `CRASH_RECORD_ID`
+**Join Attribute:** CRASH_RECORD_ID
 
 One challenge is that a single crash can involve multiple vehicles, meaning there can be several rows for the same crash. We'll need to summarize the vehicle information before combining it with the main dataset so that we don't accidentally create duplicate crash records.
 
@@ -79,15 +79,15 @@ This dataset contains information about the people involved in crashes, includin
 
 We'll use it to better understand who is involved in crashes and how different driver-related characteristics relate to injury outcomes.
 
-**Join Attribute:** `CRASH_RECORD_ID`
+**Join Attribute:** CRASH_RECORD_ID
 
 Like the Vehicles dataset, this dataset can contain multiple records for one crash. We also noticed that some demographic and injury-related fields have missing information, so we'll need to keep that in mind when analyzing the data.
 
 ### How We'll Combine the Datasets
 
-All three datasets share `CRASH_RECORD_ID`, which gives us a way to connect them.
+All three datasets share CRASH_RECORD_ID, which gives us a way to connect them.
 
-We plan to use the Crashes dataset as our starting point since it has one record per crash. For the Vehicles and People datasets, we'll group the records by `CRASH_RECORD_ID` and create summaries of the information we need, such as the number of vehicles or people involved.
+We plan to use the Crashes dataset as our starting point since it has one record per crash. For the Vehicles and People datasets, we'll group the records by CRASH_RECORD_ID and create summaries of the information we need, such as the number of vehicles or people involved.
 
 We'll then use Pandas to join these summaries to the Crashes dataset. This should allow us to keep one row per crash while bringing in useful information from the other two sources.
 
@@ -111,7 +111,7 @@ We found and downloaded the three Chicago traffic crash datasets and performed a
 
 **November 16–19: Data Integration – In Progress**
 
-Our next step is to combine the three datasets using `CRASH_RECORD_ID`. We'll first summarize the Vehicles and People datasets to avoid creating duplicate crash records, then join them with the Crashes dataset.
+Our next step is to combine the three datasets using CRASH_RECORD_ID. We'll first summarize the Vehicles and People datasets to avoid creating duplicate crash records, then join them with the Crashes dataset.
 
 **November 20–24: Post-Integration Quality Assessment – Not Started**
 
